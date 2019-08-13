@@ -15,16 +15,23 @@ func TestHello(t *testing.T) {
 		}
 	}
 
-	t.Run("Saying hello to people", func(t *testing.T) {
-		got := hello("Sw")
-		want := "Hello, Sw!"
+	t.Run("Say_hello_in_bg", func(t *testing.T) {
+		got := hello("Св", "bulgarian")
+		want := "Здрасти, Св"
 		assertCorrectMsg(t, got, want)
 
 	})
 
-	t.Run("Say hello w/o name", func(t *testing.T) {
-		got := hello("")
-		want := "Hello, World@!"
+	t.Run("Say_hello_in_en", func(t *testing.T) {
+		got := hello("Sw", "en_EN")
+		want := "Hello, Sw"
+		assertCorrectMsg(t, got, want)
+
+	})
+
+	t.Run("Say_hello_no_name", func(t *testing.T) {
+		got := hello("", "")
+		want := "Hello, World"
 		assertCorrectMsg(t, got, want)
 
 	})
